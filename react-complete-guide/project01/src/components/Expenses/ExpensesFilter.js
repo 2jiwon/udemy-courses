@@ -3,13 +3,14 @@ import './ExpensesFilter.css';
 const ExpensesFilter = (props) => {
     const dropdownChangeHandler = (event) => {
         props.onChangeFilter(event.target.value);
+        // console.log(event.target.value);
     }
 
     return (
         <div className="expenses-filter">
             <div className="expenses-filter__control">
                 <label>Filter by year</label>
-                <select onChange={dropdownChangeHandler}>
+                <select onChange={dropdownChangeHandler} value={props.selected}>
                     <option value="">Select Year</option>
                     <option value="2022">2022</option>
                     <option value="2021">2021</option>
