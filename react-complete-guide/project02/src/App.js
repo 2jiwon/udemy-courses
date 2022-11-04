@@ -10,7 +10,9 @@ function App() {
 
   return (
     <div>
-      <CourseGoalList items={courseGoals} />
+      <section id="goals">
+        <CourseGoalList items={courseGoals} />
+      </section>
     </div>
   );
 }
