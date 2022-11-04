@@ -9,6 +9,9 @@ function App() {
     { text: 'Finish the course!', id: 'g2' }
   ]);
 
+  /**
+   * Goal 목록 표시
+   */
   let content = (
     <p style={{ textAlign: 'center' }}>No Goals found.</p>
   )
@@ -18,10 +21,21 @@ function App() {
     )
   }
 
+  /**
+   * Goal 추가
+   */
+  const addGoalHandler = enteredText => {
+    console.log(enteredText);
+    setCourseGoals([...courseGoals, {
+      text: enteredText,
+      id: Math.random().toString()
+    }]);
+  }
+
   return (
     <div>
       <section id="goal-form">
-        <CourseGoalInput />
+        <CourseGoalInput onAddGoal={addGoalHandler} />
       </section>
       <section id="goals">
         {content}
