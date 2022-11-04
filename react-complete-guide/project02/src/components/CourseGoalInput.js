@@ -1,4 +1,5 @@
 import './CourseGoalInput.css';
+import Button from './UI/Button/Button';
 
 const CourseGoalInput = (props) => {
     return (
@@ -6,7 +7,7 @@ const CourseGoalInput = (props) => {
             <div class="form-control">
                 <input type="text" placeholder='Enter your goal' />
             </div>
-            <button type="submit">Add</button>
+            <Button type="submit">Add Goal</Button>
         </form>
     )
 }
