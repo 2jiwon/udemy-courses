@@ -9,13 +9,22 @@ function App() {
     { text: 'Finish the course!', id: 'g2' }
   ]);
 
+  let content = (
+    <p style={{ textAlign: 'center' }}>No Goals found.</p>
+  )
+  if (courseGoals.length > 0) {
+    content = (
+      <CourseGoalList items={courseGoals} />
+    )
+  }
+
   return (
     <div>
       <section id="goal-form">
         <CourseGoalInput />
       </section>
       <section id="goals">
-        <CourseGoalList items={courseGoals} />
+        {content}
       </section>
     </div>
   );
