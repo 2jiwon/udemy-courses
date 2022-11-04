@@ -1,5 +1,6 @@
 import './App.css';
 import { useState } from 'react';
+import CourseGoalList from './components/CourseGoalList';
 
 function App() {
   const [courseGoals, setCourseGoals] = useState([
@@ -9,7 +10,7 @@ function App() {
 
   return (
     <div>
-
+      <CourseGoalList items={courseGoals} />
     </div>
   );
 }
