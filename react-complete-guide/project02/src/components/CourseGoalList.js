@@ -1,9 +1,13 @@
+import './CourseGoalList.css';
+import CourseGoalItem from './CourseGoalItem';
 
 const CourseGoalList = (props) => {
     return (
-        <ul>
+        <ul className="goal-list">
             {props.items.map((el) => (
-                <div key={el.id}>{el.text}</div>
+                <CourseGoalItem key={el.id}>
+                    {el.text}
+                </CourseGoalItem>
             ))}
         </ul>
     )
