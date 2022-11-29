@@ -1,6 +1,6 @@
 import './CourseGoalInput.css';
 import { useState } from 'react';
-import Button from './UI/Button/Button';
+import Button from '../UI/Button/Button';
 
 const CourseGoalInput = (props) => {
     const [enteredValue, setEnteredValue] = useState('');
