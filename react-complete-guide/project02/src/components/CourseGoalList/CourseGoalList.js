@@ -1,5 +1,5 @@
 import './CourseGoalList.css';
-import CourseGoalItem from './CourseGoalItem';
+import CourseGoalItem from '../CourseGoalItem/CourseGoalItem';
 
 const CourseGoalList = (props) => {
     return (

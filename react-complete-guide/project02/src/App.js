@@ -1,7 +1,7 @@
 import './App.css';
 import { useState } from 'react';
-import CourseGoalList from './components/CourseGoalList';
-import CourseGoalInput from './components/CourseGoalInput';
+import CourseGoalList from './components/CourseGoalList/CourseGoalList';
+import CourseGoalInput from './components/CourseGoalInput/CourseGoalInput';
 
 function App() {
   const [courseGoals, setCourseGoals] = useState([
