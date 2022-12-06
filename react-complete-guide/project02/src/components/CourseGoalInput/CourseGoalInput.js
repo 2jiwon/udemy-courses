@@ -5,14 +5,25 @@ import Button from '../UI/Button/Button';
 const CourseGoalInput = (props) => {
     const [enteredValue, setEnteredValue] = useState('');
     const inputRef = useRef();
+    const [isValid, setIsValid] = useState(true);
 
     const goalInputChangeHandler = event => {
         // console.log(event.target.value); // 글자 입력할 때 마다 출력됨
+
+        // 입력값이 있으면 valid를 true로 설정
+        if (event.target.value.trim().length > 0) {
+            setIsValid(true);
+        }
         setEnteredValue(event.target.value);
     }
     const formSubmitHandler = event => {
         event.preventDefault();
-        // console.log(enteredValue);
+        // 입력된 값이 없으면 실행을 중단 -> 빈 값으로 목록 생성 방지
+        if (enteredValue.trim().length === 0) {
+            // 입력값이 없으면 valid를 false로 설정
+            setIsValid(false);
+            return;
+        }
         props.onAddGoal(enteredValue);
         inputRef.current.value = ""; // 폼 전송 후에 input 초기화
     }
@@ -20,8 +31,8 @@ const CourseGoalInput = (props) => {
     return (
         <form onSubmit={formSubmitHandler}>
             <div className="form-control">
-                <label>Course Goal</label>
-                <input type="text" placeholder='Enter your goal' onChange={goalInputChangeHandler} ref={inputRef} />
+                <label style={{ color: !isValid ? 'red' : 'black' }}>Course Goal</label>
+                <input style={{ borderColor: !isValid ? 'red' : 'black', background: !isValid ? 'cornsilk' : 'transparent' }} type="text" placeholder='Enter your goal' onChange={goalInputChangeHandler} ref={inputRef} />
             </div>
             <Button type="submit">Add Goal</Button>
         </form>
