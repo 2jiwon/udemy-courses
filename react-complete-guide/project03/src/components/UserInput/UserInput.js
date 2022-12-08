@@ -23,6 +23,13 @@ const UserInput = (props) => {
             });
             return;
         }
+        if (enteredAge < 1) {
+            setError({
+                title: 'Invalid age',
+                message: 'Please enter a valid age.'
+            });
+            return;
+        }
         const value = {
             name: enteredName,
             age: enteredAge
