@@ -17,7 +17,7 @@ const UserInput = (props) => {
             name: enteredName,
             age: enteredAge
         };
-        console.log(value);
+        // console.log(value);
         props.onAddUser(value);
     }
     return (

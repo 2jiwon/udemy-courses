@@ -9,12 +9,37 @@ function App() {
     { id: 2, name: 'Santa', age: '60' }
   ]);
 
+  /**
+   * User 추가
+   * @param {} enteredValue 
+   */
   const addUserHandler = enteredValue => {
     setUsers([...users, {
-      id: Math.random(),
+      id: Math.floor(Math.random() * 1000),
       name: enteredValue.name,
       age: enteredValue.age
     }]);
+  }
+  /**
+   * User 삭제
+   */
+  const deleteUserHandler = userId => {
+    setUsers(prevUsers => {
+      const updatedUsers = prevUsers.filter(user => user.id !== userId);
+      return updatedUsers;
+    });
+  }
+  /**
+   * User 목록
+   */
+  let content = (
+    <p style={{ textAlign: 'center' }}>No Users.</p>
+  );
+
+  if (users.length > 0) {
+    content = (
+      <UsersList list={users} onDeleteUser={deleteUserHandler}></UsersList>
+    )
   }
 
   return (
@@ -23,7 +48,7 @@ function App() {
         <UserInput onAddUser={addUserHandler}></UserInput>
       </section>
       <section id="users">
-        <UsersList list={users}></UsersList>
+        {content}
       </section>
     </div>
   );
