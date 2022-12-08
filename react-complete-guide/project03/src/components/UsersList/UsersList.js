@@ -5,7 +5,9 @@ const UsersList = (props) => {
     return (
         <ul className={styles['users-list']}>
             {props.list.map(el => (
-                <User key={el.id} id={el.id} onDelete={props.onDeleteUser}>{el.name} ({el.age} years old)</User>
+                <User key={el.id} id={el.id} onDelete={props.onDeleteUser}>
+                    {el.name} ({el.age} years old)
+                </User>
             ))}
         </ul>
     );
